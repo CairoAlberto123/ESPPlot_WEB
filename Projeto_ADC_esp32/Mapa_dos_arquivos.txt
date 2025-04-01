@@ -1,0 +1,28 @@
+Projeto_ADC_esp32/
+├── Mapa_dos_arquivos.txt
+├── esp32_firmware/
+│   └── adc_reader.ino
+├── flask_server/
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── static/
+│   │   ├── styles.css
+│   │   ├── script.js
+│   │   └── assets/ 
+│   └── templates/
+│       └── index.html
+└── documentacao/
+    ├── modelos_protheus 
+    │   └──Amplidicador_Instrumental #documentos Protheus para o amplificador instrumental
+    ├── Documentacao_Tecnica_Geral.pdf 
+    ├── manual_esp32.pdf
+    ├── manual_servidor.pdf
+    ├── manual_interface.pdf
+    └── latex_source/ # Código-fonte em LaTeX para geração dos PDFs
+        ├── fixa_tecnica.tex 
+        ├── manual_esp32.tex
+        ├── manual_servidor_python.tex
+        ├── manual_interface_web.tex
+        ├── imagens/  # Pasta para armazenar diagramas e figuras usadas no LaTeX
+        ├── referencias.bib  # referências bibliográficas
+        └── outros_arquivos_auxiliares/

@@ -1,0 +1,117 @@
+% Código desenvolvido por: Cairo Alberto
+% Estudante de Engenharia da Computação - PUC Goiás
+% Repositório: https://github.com/CairoAlberto123
+% Data de criação: 2025-04-01
+% Descrição: Documento de documentação técnica do Sistema Integrado para Leitura de ADC via ESP32 com Servidor Flask e Interface Web
+% Tecnologias utilizadas: ESP32, Arduino IDE, Python, Flask, HTML, CSS, JavaScript, LaTeX
+% Licença: MIT
+% 2025 Cairo Alberto - Todos os direitos reservados.
+
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{cite}
+
+\geometry{left=3cm,right=2cm,top=3cm,bottom=2cm}
+\pagestyle{fancy}
+\fancyhead[L]{Sistema Integrado ADC}
+\fancyhead[R]{Cairo Alberto}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\LARGE \textbf{Sistema Integrado para Leitura de ADC via ESP32 com Servidor Flask e Interface Web}\par}
+    \vspace{2cm}
+    {\Large Documento de Documentação Técnica\par}
+    \vspace{2cm}
+    {\large Cairo Alberto \par}
+    {\large \texttt{https://github.com/CairoAlberto123} \par}
+    \vfill
+    {\large 2025 Cairo Alberto - Todos os direitos reservados.\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introdução}
+Este documento tem como objetivo descrever detalhadamente o funcionamento e a implementação do sistema integrado para leitura de ADC utilizando ESP32, servidor Flask e interface web. A documentação segue as normas da ABNT, apresentando referências, descrições dos componentes e manuais de funcionamento.
+
+\section{Firmware para ESP32}
+\subsection{Descrição Geral}
+O firmware desenvolvido para o ESP32 realiza a leitura do ADC e envia os valores lidos via comunicação serial USB. O código foi implementado na IDE do Arduino, com estrutura modular e comentários que facilitam a manutenção e a extensão do sistema.
+
+\subsection{Conexões}
+\begin{itemize}
+    \item \textbf{ADC:} Conectar os sinais analógicos (+ e -) conforme a especificação do sensor utilizado.
+    \item \textbf{USB:} O conector USB-C é utilizado para programação e comunicação serial.
+\end{itemize}
+
+\subsection{Manual de Funcionamento}
+O firmware inicia a comunicação serial a 115200 bps, realiza leituras periódicas do ADC (pino 34, por exemplo) e transmite os valores lidos. Funções específicas para inicialização e leitura do ADC foram implementadas, permitindo fácil adaptação a diferentes sensores ou requisitos de projeto.
+
+\section{Servidor Flask em Python}
+\subsection{Descrição Geral}
+O servidor desenvolvido em Python utiliza o framework Flask para monitorar a porta serial e coletar os dados enviados pelo ESP32. Além da leitura contínua, o servidor implementa filtros (passa-baixa e passa-alta), permite a gravação dos dados e gera um vídeo com os gráficos para posterior download.
+
+\subsection{Bibliotecas Utilizadas}
+As principais bibliotecas utilizadas são:
+\begin{itemize}
+    \item \textbf{Flask} - Para o desenvolvimento do servidor web;
+    \item \textbf{PySerial} - Para a comunicação serial com o ESP32;
+    \item \textbf{NumPy} - Para o processamento numérico dos dados;
+    \item \textbf{Matplotlib} - Para a geração de gráficos;
+    \item \textbf{OpenCV} - Para a criação de vídeos a partir dos gráficos.
+\end{itemize}
+
+\subsection{Arquivo requirements.txt}
+\begin{verbatim}
+Flask
+pyserial
+numpy
+matplotlib
+opencv-python
+\end{verbatim}
+
+\subsection{Manual de Funcionamento}
+O servidor realiza a leitura contínua dos dados via porta serial, aplica os filtros configurados e envia os dados para a interface web para visualização em tempo real. A funcionalidade de gravação permite salvar os dados brutos em um arquivo de texto e gerar um vídeo com o gráfico dos dados capturados.
+
+\section{Interface Web}
+\subsection{Descrição Geral}
+A interface web foi desenvolvida com HTML, CSS e JavaScript, proporcionando:
+\begin{itemize}
+    \item Seleção da porta serial para conexão com o ESP32;
+    \item Configuração dos filtros (passa-baixa e passa-alta);
+    \item Visualização dos dados em tempo real através de um gráfico dinâmico;
+    \item Controle de gravação dos dados, com indicadores visuais e temporizador.
+\end{itemize}
+
+\subsection{Manual de Uso}
+O usuário pode selecionar a porta serial desejada, configurar os filtros e iniciar/parar a gravação dos dados. Os dados são atualizados dinamicamente no gráfico, e ao finalizar a gravação, os arquivos de dados e vídeo ficam disponíveis para download.
+
+\section{Conclusão}
+O sistema integrado apresentado permite a captura, processamento e visualização dos dados do ADC de forma modular e expansível. A documentação técnica e o código comentado facilitam a manutenção e futuras atualizações, atendendo aos requisitos propostos e seguindo as normas da ABNT.
+
+\section{Referências}
+\begin{thebibliography}{9}
+\bibitem{Arduino}
+Arduino. \textit{Arduino Reference}. Disponível em: \url{https://www.arduino.cc/reference/en/}. Acesso em: [data de acesso].
+\bibitem{Flask}
+Flask. \textit{Flask Documentation}. Disponível em: \url{https://flask.palletsprojects.com/}. Acesso em: [data de acesso].
+\bibitem{PySerial}
+PySerial. \textit{PySerial Documentation}. Disponível em: \url{https://pythonhosted.org/pyserial/}. Acesso em: [data de acesso].
+\bibitem{Matplotlib}
+Matplotlib. \textit{Matplotlib Documentation}. Disponível em: \url{https://matplotlib.org/}. Acesso em: [data de acesso].
+\bibitem{OpenCV}
+OpenCV. \textit{OpenCV Documentation}. Disponível em: \url{https://docs.opencv.org/}. Acesso em: [data de acesso].
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[lmargin=3cm,rmargin=2cm,tmargin=3cm,bmargin=2cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\title{Manual da Interface Web}
+\author{Cairo Alberto}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Componentes da Interface}
+\begin{itemize}
+\item Seletor de Portas Seriais (COM)
+\item Gráfico em Tempo Real (Chart.js)
+\item Controles de Filtro Digital
+\item Sistema de Gravação Integrado
+\end{itemize}
+
+\section{Fluxo de Operação}
+\begin{enumerate}
+\item Conectar ao ESP32
+\item Selecionar filtros
+\item Iniciar monitoramento
+\item Opcional: Gravar sessão
+\end{enumerate}
+
+\section{Especificações de Performance}
+\begin{itemize}
+\item Taxa de atualização: 30 FPS
+\item Latência máxima: 100ms
+\item Buffer de dados: 200 amostras
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{interface_layout.png}
+\caption{Layout da Interface Web}
+\end{figure}
+
+\end{document}

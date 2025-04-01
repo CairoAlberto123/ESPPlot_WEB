@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[lmargin=3cm,rmargin=2cm,tmargin=3cm,bmargin=2cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\title{Manual Técnico - Firmware ESP32}
+\author{Cairo Alberto}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Documentação técnica do firmware desenvolvido para ESP32 com funcionalidades de leitura ADC e comunicação serial. Inclui especificações elétricas, diagrama de conexões e explicação do código fonte.
+\end{abstract}
+
+\section{Especificações Técnicas}
+\begin{itemize}
+\item Microcontrolador: ESP32-WROOM-32
+\item Tensão de operação: 3.3V
+\item Resolução ADC: 12 bits (0-4095)
+\item Pino utilizado: GPIO34 (ADC1\_CH6)
+\item Baud rate: 115200
+\end{itemize}
+
+\section{Diagrama de Conexões}
+\begin{itemize}
+\item Conector USB-C: Alimentação e comunicação
+\item Entrada analógica: Pino GPIO34
+\item GND: Referência comum
+\end{itemize}
+
+\section{Código Fonte Comentado}
+\lstset{style=mystyle}
+\begin{lstlisting}[language=C++, caption=Firmware principal (adc\_reader.ino)]
+/*
+Desenvolvedor: Cairo Alberto
+Repositório: https://github.com/CairoAlberto123
+Data: \today
+Licença: MIT
+*/
+
+#define ADC_PIN 34  // Canal ADC1_CH6
+
+void setup() {
+  Serial.begin(115200);
+  analogReadResolution(12); // Configura resolução de 12 bits
+}
+
+void loop() {
+  int adcValue = analogRead(ADC_PIN);
+  Serial.println(adcValue); // Envia valor via serial
+  delayMicroseconds(100);   // Intervalo de 100µs (~10k amostras/s)
+}
+\end{lstlisting}
+
+\section{Procedimento de Upload}
+\begin{enumerate}
+\item Instalar Arduino IDE e ESP32 board package
+\item Conectar via USB-C
+\item Selecionar porta COM correspondente
+\item Compilar e fazer upload
+\item Monitorar serial para verificação
+\end{enumerate}
+
+\section{Referências}
+\begin{itemize}
+\item Datasheet ESP32-WROOM-32
+\item Documentação Arduino Core for ESP32
+\item Normas ABNT NBR 14724:2011
+\end{itemize}
+
+\end{document}

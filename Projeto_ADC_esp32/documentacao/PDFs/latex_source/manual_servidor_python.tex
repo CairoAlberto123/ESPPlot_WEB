@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[lmargin=3cm,rmargin=2cm,tmargin=3cm,bmargin=2cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\title{Manual do Servidor Flask}
+\author{Cairo Alberto}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Requisitos do Sistema}
+\begin{itemize}
+\item Python 3.8+
+\item Dependências (requirements.txt):
+\begin{verbatim}
+flask==2.0.1
+flask-socketio==5.1.1
+pyserial==3.5
+numpy==1.21.2
+scipy==1.7.1
+\end{verbatim}
+\end{itemize}
+
+\section{Arquitetura do Sistema}
+\begin{itemize}
+\item Comunicação Serial: Thread dedicada
+\item WebSockets: Atualizações em tempo real
+\item Filtros Digitais: Implementados com SciPy
+\end{itemize}
+
+\section{API Endpoints}
+\begin{itemize}
+\item \textbf{GET /}: Interface web principal
+\item \textbf{WebSocket /socket.io}: Comunicação bidirecional
+\end{itemize}
+
+\section{Configuração de Filtros}
+Fórmula do filtro passa-baixa:
+\[
+H(s) = \frac{1}{\sqrt{1 + \left(\frac{f}{f_c}\right)^{2n}}}
+\]
+Onde:
+\begin{itemize}
+\item \(f_c\): Frequência de corte
+\item \(n\): Ordem do filtro (padrão=5)
+\end{itemize}
+
+\end{document}
