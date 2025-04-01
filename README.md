@@ -28,7 +28,7 @@ O sistema exibe um **gráfico dinâmico** que atualiza conforme novos dados são
 3. **Ajustar o tempo do gráfico:** Utilizar a interface para definir o intervalo desejado de atualização.  
 
 ## **Futuras Melhorias**  
-- Implementação de um painel web para exibição dos dados.  
+- Implementação de um painel web para exibição de multiplos tipos de dados.  
 - Integração com banco de dados para armazenamento das leituras.  
 - Suporte para múltiplos sensores e formatos de dados.  
 
