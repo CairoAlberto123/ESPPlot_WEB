@@ -1,5 +1,20 @@
-flask==2.0.1
-flask-socketio==5.1.1
-pyserial==3.5
-numpy==1.21.2
-scipy==1.7.1
+# Flask para criação do servidor web
+Flask>=2.0.0
+
+# Flask-SocketIO para comunicação em tempo real com o frontend
+Flask-SocketIO>=5.0.0
+
+# PySerial para comunicação com o ESP32 via porta COM
+pyserial>=3.5
+
+# NumPy para manipulação de dados numéricos
+numpy>=1.21.0
+
+# SciPy para aplicação de filtros passa-baixa e passa-alta
+scipy>=1.7.0
+
+# Matplotlib para plotagem de gráficos
+matplotlib>=3.4.3
+
+# Waitress (opcional) para rodar o servidor Flask em ambiente de produção
+waitress>=2.0.0
