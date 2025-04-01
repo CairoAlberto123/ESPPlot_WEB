@@ -1,7 +1,5 @@
 # ESPPlot_WEB
-Aqui está uma descrição bem estruturada para seu projeto no GitHub:  
 
----
 
 # **Projeto: Monitoramento de Dados em Tempo Real com ESP32 e Python**  
 
